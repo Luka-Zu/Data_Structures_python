@@ -117,9 +117,9 @@ class Dynamic_Array:
             return  
         
         for i in range(index,self.n-1):
-            self.A[i]=self.A[i+1]   # Shift every value in index [index:n] on left by one
+            self.array[i]=self.array[i+1]   # Shift every value in index [index:n] on left by one
              
              
-        self.A[self.n-1]=0
+        self.array[self.n-1]=0
         self.n-=1
         
