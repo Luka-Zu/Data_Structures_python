@@ -102,6 +102,7 @@ class Dynamic_Array:
     def removeAt(self,index):
         """
             This element deletes element from specified index
+            It is done in O(n)
         """
         
         # check for incorrect index values
@@ -121,5 +122,4 @@ class Dynamic_Array:
              
         self.A[self.n-1]=0
         self.n-=1
-        
         
