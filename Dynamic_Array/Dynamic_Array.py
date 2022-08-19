@@ -14,15 +14,15 @@ class Dynamic_Array:
 
     def __len__(self):
         """
-        Returns number of elements in D-Array
-        It is done in O(1)
+            Returns number of elements in D-Array
+            It is done in O(1)
         """
         return self.n
     
     def __getitem__(self,k):
         """
-        Returns element at index K
-        It is done in O(1)
+            Returns element at index K
+            It is done in O(1)
         """
 
         if not 0 <= k < self.n:
@@ -33,8 +33,8 @@ class Dynamic_Array:
 
     def append(self,element):
         """
-        Add element to the end of the array
-        It is done in amortized O(1)
+            Add element to the end of the array
+            It is done in amortized O(1)
         """
         if self.n == self.capacity:
             # we need to change capacity if it reached it's limit
@@ -45,8 +45,8 @@ class Dynamic_Array:
     
     def insertAt(self,item,index):
         """
-        This function inserts at specific index
-        It is done in O(N)
+            This function inserts at specific index
+            It is done in O(N)
         """
         if index < 0 or index > self.n:
             raise Exception("Enter correct index ")
@@ -66,9 +66,9 @@ class Dynamic_Array:
 
     def _resize(self, new_capacity):
         """
-        Function to resize array
-        and copy all previous values in it 
-        It is done in O(N)
+            Function to resize array
+            and copy all previous values in it 
+            It is done in O(N)
         """
         new_array = self.make_array(new_capacity)
 
@@ -81,11 +81,45 @@ class Dynamic_Array:
     
     def make_array(self, new_capacity):
         """
-        Creates new array with diffrent capacity
-        It is done in O(N)
+            Creates new array with diffrent capacity
+            It is done in O(N)
         """
         return (new_capacity * ctypes.py_object)()
 
 
-a = Dynamic_Array()
+    def delete(self):
+        """
+            This method deletes element from the end of array
+            It is done in O(1)
+        """
 
+        if self.n == 0:
+            raise Exception("There is no element left to delete! ")
+        
+        self.array[self.n-1] = None # in reality this is not even neccasary as we change n to n-1 and cant access this index at all
+        self.n -= 1  # decrement n
+
+    def removeAt(self,index):
+        """
+            This element deletes element from specified index
+        """
+        
+        # check for incorrect index values
+        if index < 0 or index > self.n: 
+            raise Exception("Enter correct index! ")
+        
+        if self.n == 0: 
+            raise Exception("There is no element left to delete! ")
+        
+        if index==self.n-1:
+            self.delete()
+            return  
+        
+        for i in range(index,self.n-1):
+            self.A[i]=self.A[i+1]   # Shift every value in index [index:n] on left by one
+             
+             
+        self.A[self.n-1]=0
+        self.n-=1
+        
+        
