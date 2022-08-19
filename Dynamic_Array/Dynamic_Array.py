@@ -1,5 +1,4 @@
-import ctypes
-from hashlib import new # this library provides C compatible data types, and allows calling functions in DLLs or shared libraries.
+import ctypes # this library provides C compatible data types, and allows calling functions in DLLs or shared libraries.
 
 class Dynamic_Array:
     """
