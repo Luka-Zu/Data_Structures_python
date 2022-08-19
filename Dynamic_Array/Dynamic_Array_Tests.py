@@ -17,6 +17,7 @@ test_array.delete()
 for x in range(0,3):
     print(test_array[x])
 
+
 test_array.removeAt(0)
 
 for x in range(0,2):

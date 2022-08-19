@@ -120,6 +120,7 @@ class Dynamic_Array:
             self.array[i]=self.array[i+1]   # Shift every value in index [index:n] on left by one
              
              
+             
         self.array[self.n-1]=0
         self.n-=1
         
