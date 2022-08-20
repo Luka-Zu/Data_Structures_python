@@ -47,6 +47,7 @@ class Single_linked_list:
 
     def printerOfArray(self):
         temp = self.head
+        print(self.length)
         for i in range(0,self.length):
             
             print(f"index {i} {temp.value}")
@@ -55,25 +56,38 @@ class Single_linked_list:
             
 
     def insertAtIndex(self,node,index):
-        node = Node(node)
-
         temp,n = self.head,0
-
 
         if index < 0 or index > self.length:
             raise Exception("Enter correct index! ")
-
+        
         if index == 0:
             self.insertAtHead(node)
         else:
+            node = Node(node)
+
             while n<index-1:
                 temp = temp.next
                 n+=1
             
             node.next = temp.next
             temp.next = node
+            self.length += 1 
 
-        self.length += 1 
+    def removeAtHead(self):
+
+        if self.length == 0 :
+            self.head = self.tail = None
+        elif self.length == 1:
+            self.head = self.tail = None
+            self.length -= 1 
+        else:
+            self.head = self.head.next
+            self.length -= 1 
+        
+        
+    # def removeAtTail(self):
+
 
 
 
@@ -83,20 +97,24 @@ lst.insertAtTail(10)
 lst.insertAtTail(20)
 lst.insertAtHead(0)
 
-print(lst.printerOfArray())
-print(lst.length)
+# print(lst.printerOfArray())
+# print(lst.length)
 
-print("___")
+# print("___")
 
 lst.insertAtIndex(index=1,node=5)
-print(lst.printerOfArray())
+# print(lst.printerOfArray())
 
-print("___")
+# print("___")
 
 lst.insertAtIndex(index=4,node=50)
-print(lst.printerOfArray())
+# lst.printerOfArray()
 
-print("___")
+# print("___")
 
 lst.insertAtIndex(index=0,node=506)
-print(lst.printerOfArray())
+lst.printerOfArray()
+print("___")
+
+
+
