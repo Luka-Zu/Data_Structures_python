@@ -86,8 +86,34 @@ class Single_linked_list:
             self.length -= 1 
         
         
-    # def removeAtTail(self):
+    def removeAtTail(self):
 
+        if self.length == 0 :
+            self.head = self.tail = None
+        elif self.length == 1:
+            self.head = self.tail = None
+            self.length -= 1 
+        else: 
+        
+            cur = self.head
+            while cur.next.next != None: 
+              
+                cur = cur.next
+            self.tail = cur
+            cur.next = None
+            self.length -= 1 
+    
+    def removeAtIndex(self,index):
+        if index < 0 or index > self.length:
+            raise Exception("Enter correct index! ")
+
+        if self.length == 0 :
+            self.head = self.tail = None
+        elif self.length == 1:
+            self.head = self.tail = None
+            self.length -= 1 
+        else:
+            pass
 
 
 
@@ -116,5 +142,8 @@ lst.insertAtIndex(index=0,node=506)
 lst.printerOfArray()
 print("___")
 
+lst.removeAtTail()
 
-
+lst.printerOfArray()
+print("___")
+print(lst.tail.value)
