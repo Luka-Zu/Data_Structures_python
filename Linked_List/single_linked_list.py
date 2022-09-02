@@ -1,4 +1,5 @@
-from operator import ne
+
+import re
 
 
 class Node:
@@ -23,7 +24,10 @@ class Single_linked_list:
     
 
     def insertAtTail(self,node):
-
+        """
+            Method which adds element at 
+            the end of list in O(1) Time
+        """
         node = Node(node)
 
         if self.length == 0:
@@ -35,6 +39,10 @@ class Single_linked_list:
     
 
     def insertAtHead(self,node):
+        """
+            Method which adds element at 
+            the beggining of list in O(1) Time
+        """
         node = Node(node)
 
         if self.length == 0:
@@ -46,16 +54,23 @@ class Single_linked_list:
 
 
     def printerOfArray(self):
+        """
+            method which visualise a linked list
+            O(N) Time
+        """
         temp = self.head
         print(self.length)
         for i in range(0,self.length):
-            
             print(f"index {i} {temp.value}")
             temp = temp.next
 
             
 
     def insertAtIndex(self,node,index):
+        """
+            Method which adds element at
+            certain index in o(N) time
+        """
         temp,n = self.head,0
 
         if index < 0 or index > self.length:
@@ -75,7 +90,10 @@ class Single_linked_list:
             self.length += 1 
 
     def removeAtHead(self):
-
+        """
+            Method which removes element at
+            the beggining  in o(1) time
+        """
         if self.length == 0 :
             self.head = self.tail = None
         elif self.length == 1:
@@ -87,7 +105,10 @@ class Single_linked_list:
         
         
     def removeAtTail(self):
-
+        """
+            Method which removes element at
+            the end  in o(1) time
+        """
         if self.length == 0 :
             self.head = self.tail = None
         elif self.length == 1:
@@ -104,6 +125,10 @@ class Single_linked_list:
             self.length -= 1 
     
     def removeAtIndex(self,index):
+        """
+            Method which removes element at
+            the index  in o(N) time
+        """
         if index < 0 or index > self.length:
             raise Exception("Enter correct index! ")
 
@@ -113,7 +138,22 @@ class Single_linked_list:
             self.head = self.tail = None
             self.length -= 1 
         else:
-            pass
+            if index == 0:
+                self.head = self.head.next
+                self.length -= 1
+                return
+
+            cur = self.head
+            curIndex = 0
+            while curIndex + 1 < index:
+                curIndex+=1
+                cur = cur.next
+            cur.next = cur.next.next
+            self.length -= 1
+
+            
+            
+            
 
 
 
@@ -142,8 +182,7 @@ lst.insertAtIndex(index=0,node=506)
 lst.printerOfArray()
 print("___")
 
-lst.removeAtTail()
 
+lst.removeAtIndex(5)
 lst.printerOfArray()
 print("___")
-print(lst.tail.value)
