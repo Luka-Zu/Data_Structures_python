@@ -44,7 +44,7 @@ class SingleLinkedList:
     def insert_at_head(self, node):
         """
             Method which adds element at 
-            the beggining of list in O(1) Time
+            the beginning of list in O(1) Time
         """
         node = Node(node)
 
