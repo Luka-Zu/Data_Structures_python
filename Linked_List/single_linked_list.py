@@ -153,36 +153,4 @@ class Single_linked_list:
 
             
             
-            
-
-
-
-lst = Single_linked_list()
-
-lst.insertAtTail(10)
-lst.insertAtTail(20)
-lst.insertAtHead(0)
-
-# print(lst.printerOfArray())
-# print(lst.length)
-
-# print("___")
-
-lst.insertAtIndex(index=1,node=5)
-# print(lst.printerOfArray())
-
-# print("___")
-
-lst.insertAtIndex(index=4,node=50)
-# lst.printerOfArray()
-
-# print("___")
-
-lst.insertAtIndex(index=0,node=506)
-lst.printerOfArray()
-print("___")
-
-
-lst.removeAtIndex(5)
-lst.printerOfArray()
-print("___")
+        
