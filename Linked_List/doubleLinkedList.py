@@ -43,13 +43,34 @@ class DoubleLinkedList:
             self.head = node
         self.length += 1
 
+    def insert_at_tail(self, node):
+        """
+            Method which adds element at
+            the end of list in O(1) Time
+        """
+
+        node = Node(node)
+
+        if self.length == 0:
+            self.head = self.tail = node
+        else:
+            self.tail.next = node
+            node.prev = self.tail
+            self.tail = node
+        self.length += 1
+
+
+# TESTING PURPOSES
 
 
 # x = DoubleLinkedList()
 # x.insert_at_head(5)
 # x.insert_at_head(3)
 # x.insert_at_head(2)
-#
+# x.insert_at_tail(4)
+# x.insert_at_tail(3)
+# x.insert_at_tail(2)
+
 #
 # print(x.head.value)
 # print(x.tail.value)
