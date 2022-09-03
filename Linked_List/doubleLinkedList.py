@@ -10,5 +10,5 @@ class Node:
         self.next = None
         self.prev = None
 
-class Double_Linked_List:
+class DoubleLinkedList:
     pass
