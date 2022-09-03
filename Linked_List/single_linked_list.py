@@ -1,7 +1,3 @@
-
-import re
-
-
 class Node:
     """
         object which represents only one node
@@ -13,7 +9,7 @@ class Node:
         self.value = value
         self.next = None
     
-class Single_linked_list:
+class Single_Linked_List:
     """
         Singly_linked_list object. 
     """
@@ -22,8 +18,14 @@ class Single_linked_list:
         self.tail = None 
         self.length = 0 
     
+    def __len__(self):
+        """
+            Returns number of elements in Linked_List
+            It is done in O(1)
+        """
+        return self.length
 
-    def insertAtTail(self,node):
+    def insert_at_tail(self,node):
         """
             Method which adds element at 
             the end of list in O(1) Time
@@ -38,7 +40,7 @@ class Single_linked_list:
         self.length += 1
     
 
-    def insertAtHead(self,node):
+    def insert_at_head(self,node):
         """
             Method which adds element at 
             the beggining of list in O(1) Time
@@ -53,7 +55,7 @@ class Single_linked_list:
         self.length += 1
 
 
-    def printerOfArray(self):
+    def printer_of_Array(self):
         """
             method which visualise a linked list
             O(N) Time
@@ -66,7 +68,7 @@ class Single_linked_list:
 
             
 
-    def insertAtIndex(self,node,index):
+    def insert_at_Index(self,node,index):
         """
             Method which adds element at
             certain index in o(N) time
@@ -89,7 +91,7 @@ class Single_linked_list:
             temp.next = node
             self.length += 1 
 
-    def removeAtHead(self):
+    def remove_at_head(self):
         """
             Method which removes element at
             the beggining  in o(1) time
@@ -104,7 +106,7 @@ class Single_linked_list:
             self.length -= 1 
         
         
-    def removeAtTail(self):
+    def remove_at_tail(self):
         """
             Method which removes element at
             the end  in o(1) time
@@ -124,7 +126,7 @@ class Single_linked_list:
             cur.next = None
             self.length -= 1 
     
-    def removeAtIndex(self,index):
+    def remove_at_index(self,index):
         """
             Method which removes element at
             the index  in o(N) time
