@@ -109,6 +109,15 @@ class DoubleLinkedList:
         node.next = cur
         self.length += 1
 
+    def delete_at_head(self):
+        pass
+
+    def delete__at_tail(self):
+        pass
+
+    def delete__at_index(self, index):
+        pass
+
 
     def printer(self):
         cur = self.head
