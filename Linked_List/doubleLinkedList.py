@@ -110,12 +110,19 @@ class DoubleLinkedList:
         self.length += 1
 
     def delete_at_head(self):
+        if self.length == 0:
+            return
+        if self.length == 1:
+            self.head = self.tail = None
+            self.length -= 1
+        else:
+            self.head = self.head.next
+            self.length -= 1
+
+    def delete_at_tail(self):
         pass
 
-    def delete__at_tail(self):
-        pass
-
-    def delete__at_index(self, index):
+    def delete_at_index(self, index):
         pass
 
 
@@ -144,5 +151,9 @@ class DoubleLinkedList:
 # x.printer()
 # print("_______")
 # x.insert_at_index("test", 0)
-# x.printer()
+#
+# while x.length > 0:
+#     x.delete_at_head()
+#     x.printer()
+#     print("_______")
 
