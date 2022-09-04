@@ -64,7 +64,7 @@ class DoubleLinkedList:
             Method which adds element at
             the specific index.
         """
-        if index < 0 or index > self.length:
+        if index < 0 or index >= self.length:
             raise Exception("Enter valid index!")
 
         node = Node(node)
@@ -72,7 +72,7 @@ class DoubleLinkedList:
         if index < self.length / 2:
             self.__insert_from_right(node, index)
         else:
-            self.__insert_from_right(node, index)
+            self.__insert_from_left(node, index)
 
     def __insert_from_right(self, node, index):
 
@@ -96,6 +96,19 @@ class DoubleLinkedList:
             self.head = node
         self.length += 1
 
+    def __insert_from_left(self, node, index):
+        current_index = self.length - 1
+        cur = self.tail
+        while current_index > index:
+            current_index -= 1
+            cur = cur.prev
+
+        cur.prev.next = node
+        node.prev = cur.prev
+        cur.prev = node
+        node.next = cur
+        self.length += 1
+
 
     def printer(self):
         cur = self.head
@@ -109,27 +122,18 @@ class DoubleLinkedList:
 
 
 
-    def __insert_from_left(self, node, index):
-        pass
 
 
 # TESTING
 
-#
 # x = DoubleLinkedList()
 # x.insert_at_head(5)
 # x.insert_at_head(3)
 # x.insert_at_head(2)
-# x.insert_at_tail(4)
-# x.insert_at_tail(3)
 # x.insert_at_tail(2)
 # x.insert_at_tail(1)
 # x.printer()
 # print("_______")
-# x.insert_at_index("test", 1)
+# x.insert_at_index("test", 0)
 # x.printer()
 
-
-#
-# print(x.head.value)
-# print(x.tail.value)
