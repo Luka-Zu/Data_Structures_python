@@ -70,19 +70,52 @@ class DoubleLinkedList:
         node = Node(node)
 
         if index < self.length / 2:
-            self.__insert_from_left(node, index)
+            self.__insert_from_right(node, index)
         else:
             self.__insert_from_right(node, index)
 
     def __insert_from_right(self, node, index):
-        pass
+
+        cur = self.head
+        current_index = 0
+
+        while current_index < index:
+            current_index += 1
+            cur = cur.next
+
+        if current_index != 0:
+            node.prev = cur.prev
+            node.next = cur
+            cur.prev.next = node
+            cur.prev = node
+        else:
+
+            cur.prev = node
+            node.next = cur
+
+            self.head = node
+        self.length += 1
+
+
+    def printer(self):
+        cur = self.head
+        current_index = 0
+        while current_index < self.length:
+            print(f"Value: {cur.value} Index: {current_index}")
+            cur = cur.next
+            current_index += 1
+
+
+
+
 
     def __insert_from_left(self, node, index):
         pass
 
-# TESTING PURPOSES
 
+# TESTING
 
+#
 # x = DoubleLinkedList()
 # x.insert_at_head(5)
 # x.insert_at_head(3)
@@ -90,6 +123,12 @@ class DoubleLinkedList:
 # x.insert_at_tail(4)
 # x.insert_at_tail(3)
 # x.insert_at_tail(2)
+# x.insert_at_tail(1)
+# x.printer()
+# print("_______")
+# x.insert_at_index("test", 1)
+# x.printer()
+
 
 #
 # print(x.head.value)
