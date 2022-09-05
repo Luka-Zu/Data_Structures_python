@@ -132,8 +132,43 @@ class DoubleLinkedList:
             self.length -= 1
 
     def delete_at_index(self, index):
-        pass
+        if index < 0 or index + 1 > self.length:
+            raise Exception("Enter correct index: ")
 
+        if index == 0:
+            self.delete_at_head()
+            return
+        if index + 1 == self.length:
+            self.delete_at_tail()
+            return
+
+        if index >= self.length / 2:
+            self.__delete_from_left(index)
+        else:
+            self.__delete_from_right(index)
+        self.length -= 1
+
+    def __delete_from_left(self, index):
+        cur = self.head
+        current_index = 0
+
+        while current_index < index:
+            current_index += 1
+            cur = cur.next
+
+        cur.prev.next = cur.next
+        cur.next.prev = cur.prev
+
+    def __delete_from_right(self, index):
+        cur = self.tail
+        current_index = self.length - 1
+
+        while current_index > index:
+            current_index -= 1
+            cur = cur.prev
+
+        cur.next.prev = cur.prev
+        cur.prev.next = cur.next
 
     def printer(self):
         cur = self.head
@@ -142,11 +177,6 @@ class DoubleLinkedList:
             print(f"Value: {cur.value} Index: {current_index}")
             cur = cur.next
             current_index += 1
-
-
-
-
-
 
 
 # TESTING
@@ -161,8 +191,9 @@ x.printer()
 print("_______")
 # x.insert_at_index("test", 0)
 
-while x.length > 0:
-    x.delete_at_tail()
-    x.printer()
-    print("_______")
+x.delete_at_index(4)
+
+x.printer()
+print("_______")
+
 
